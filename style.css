@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body{background-color:#282c34;color:white;font-family:'Courier New',Courier,monospace;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;margin:0;overflow:hidden;}
+h1,#game-title{margin-bottom:20px;text-align:center;}
+#game-title{font-family:'Press Start 2P',cursive;font-size:4rem;color:transparent;background:linear-gradient(45deg,#61dafb,#ff4757,#FFD700);-webkit-background-clip:text;background-clip:text;text-shadow:4px 4px 0px #000000,-2px -2px 0px rgba(255,255,255,0.3);animation:float 3s ease-in-out infinite;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;}
+h2{margin-top:0;}
+h3{margin-bottom:5px;font-size:1.2rem;color:#eee;}
+#main-content{display:flex;flex-direction:row;align-items:flex-start;gap:30px;}
+#game-container{position:relative;border:3px solid #61dafb;box-shadow:0 0 20px rgba(97,218,251,0.5);flex-shrink:0;}
+canvas{background-color:#f0f0f0;display:block;image-rendering:-moz-crisp-edges;image-rendering:-webkit-crisp-edges;image-rendering:pixelated;image-rendering:crisp-edges;}
+#score-display,#player-name-display{position:absolute;top:10px;font-size:24px;color:#ffffff;text-shadow:2px 2px 4px #000000;}
+#score-display{right:10px;}
+#player-name-display{left:10px;}
+#game-over-message{position:absolute;top:50%;left:50%;width:80%;max-width:450px;padding:30px;background-color:rgba(40,44,52,0.9);border-radius:15px;border:2px solid #ff4757;box-shadow:0 0 25px rgba(255,71,87,0.5);text-align:center;color:#ff4757;transform:translate(-50%,-50%) scale(0.8);opacity:0;transition:opacity .3s,transform .3s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;}
+#game-over-message:not(.hidden){animation:fadeInScaleUp .5s cubic-bezier(.175,.885,.32,1.275) forwards;}
+#game-over-message h2{font-family:'Press Start 2P',cursive;font-size:2.5rem;margin:0 0 15px 0;}
+#final-score{font-family:'Press Start 2P',cursive;font-size:3rem;color:#FFD700;display:block;margin-bottom:25px;}
+#final-score.score-revealed{animation:scoreReveal .4s ease-out;}
+#restart-button{font-family:'Press Start 2P',cursive;font-size:1rem;color:white;background-color:#ff4757;border:none;padding:15px 30px;border-radius:8px;cursor:pointer;transition:transform .2s,background-color .2s;animation:pulse 2s infinite;}
+#restart-button:hover{background-color:#ff6b81;transform:scale(1.05);animation-play-state:paused;}
+.hidden{display:none;}
+.hidden-game{display:none;}
+#name-modal{position:fixed;z-index:10;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);display:flex;justify-content:center;align-items:center;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);}
+.modal-content{background-color:#fefefe;color:#333;padding:30px;border:1px solid #888;border-radius:10px;width:80%;max-width:400px;text-align:center;}
+.modal-content input{width:calc(100% - 20px);padding:10px;margin:20px 0;font-size:1.2em;border:1px solid #ccc;border-radius:5px;}
+.modal-content button{background-color:#4CAF50;color:white;padding:14px 20px;margin:8px 0;border:none;border-radius:5px;cursor:pointer;width:100%;font-size:1.2em;}
+.modal-content button:hover{background-color:#45a049;}
+#leaderboard-container{width:300px;height:400px;background-color:#3a3f4b;border-radius:10px;padding:20px;border:2px solid #61dafb;box-shadow:0 0 15px rgba(97,218,251,.3);overflow-y:auto;}
+#leaderboard-container h2{text-align:center;color:#61dafb;border-bottom:2px solid #61dafb;padding-bottom:10px;margin-bottom:15px;}
+#leaderboard-list{list-style-type:decimal;padding-left:25px;margin:0;color:#E0E4CC;}
+#leaderboard-list li{display:flex;justify-content:space-between;padding:8px 5px;border-bottom:1px solid #555;font-size:1.1em;}
+#leaderboard-list li:last-child{border-bottom:none;}
+#leaderboard-list li span:first-child{font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;}
+#leaderboard-list li span:last-child{color:#FFD700;}
+#leaderboard-list li.empty-slot{color:#888;opacity:.6;}
+#leaderboard-list li.empty-slot span:last-child{color:#888;}
+@media (max-width: 950px){
+body{overflow-y:auto;justify-content:flex-start;padding:20px 0;}
+#game-title{font-size:2.5rem;}
+#main-content{flex-direction:column;align-items:center;gap:20px;}
+#game-container{order:-1;width:90%;max-width:500px;height:auto;border-width:2px;}
+canvas{width:100%;height:auto;}
+#game-over-message{width:85%;padding:20px;}
+#game-over-message h2{font-size:1.8rem;}
+#final-score{font-size:2.2rem;}
+#restart-button{font-size:.9rem;padding:12px 25px;}
+#leaderboard-container{width:90%;max-width:500px;height:auto;max-height:300px;}
+}
+@keyframes float{0%{transform:translateY(0px)}50%{transform:translateY(-8px)}100%{transform:translateY(0px)}}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes fadeInScaleUp{from{opacity:0;transform:translate(-50%,-50%) scale(.8)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes scoreReveal{0%{transform:scale(.8);opacity:.8}50%{transform:scale(1.2);text-shadow:0 0 15px #FFD700}100%{transform:scale(1);opacity:1}}

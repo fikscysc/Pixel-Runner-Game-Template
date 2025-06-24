@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Pixel Runner Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="game-title">Pixel Runner</h1>
+    <div id="name-modal">
+        <div class="modal-content">
+            <h2>Masukkan Nama Anda</h2>
+            <input type="text" id="player-name-input" placeholder="Nama Pemain" maxlength="15">
+            <button id="start-game-button">Mulai Main</button>
+        </div>
+    </div>
+    <main id="main-content" class="hidden-game">
+        <div id="game-container">
+            <canvas id="gameCanvas" width="800" height="400"></canvas>
+            <div id="score-display">Skor: 0</div>
+            <div id="player-name-display"></div>
+            <div id="game-over-message" class="hidden">
+                <h2>Game Over</h2>
+                <h3>Skor Akhir Anda:</h3>
+                <p id="final-score">0</p>
+                <button id="restart-button">Main Lagi</button>
+            </div>
+        </div>
+        <aside id="leaderboard-container">
+            <h2>Papan Skor</h2>
+            <ol id="leaderboard-list">
+            </ol>
+        </aside>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
