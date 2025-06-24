@@ -1,8 +1,6 @@
 # Pixel Runner Game 🏃💨
 
-![Gameplay Screenshot](https://i.imgur.com/946abe.jpg)
-
-**[🎮 Mainkan Gamenya di Sini! 🎮](https://pixel-runner-game.vercel.app/)** *(Catatan: Ganti dengan link Vercel Anda yang sudah jadi)*
+**[🎮 Mainkan Gamenya di Sini! 🎮](https://pixel-runner-game.vercel.app/)**
 
 Selamat datang di Pixel Runner, sebuah game *endless runner* yang dibuat dengan HTML, CSS, dan JavaScript murni. Proyek ini adalah sebuah perjalanan pengembangan, mulai dari kanvas kosong hingga menjadi aplikasi web penuh dengan backend, leaderboard online, dan desain yang responsif.
 
