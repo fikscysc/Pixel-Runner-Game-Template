@@ -34,8 +34,7 @@ Berikut adalah struktur folder untuk proyek ini:
 │   └── 📄 submit-score.js (Backend "Penjaga Gerbang" yang berjalan di Vercel)
 │
 └── 📁 macro-App-Script/
-└── 📄 Code.gs         (Kode Google Apps Script untuk dibagikan sebagai contoh)
-
+└── 📄 Code.gs (Code untuk app script)
 ## 🚀 Panduan Instalasi & Setup
 
 Ingin menjalankan versi Anda sendiri dari game ini? Ikuti langkah-langkah berikut:
